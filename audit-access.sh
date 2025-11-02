@@ -30,18 +30,20 @@ list_collaborators() {
     fi
     
     # Processa cada colaborador
-    echo "$collaborators" | jq -r '.[] | {
-        login: .login,
-        permissions: .permissions,
-        last_active: .updated_at
-    }' | while read -r user; do
+    echo "$collaborators" | jq -c '.[]' | while read -r user; do
         login=$(echo "$user" | jq -r '.login')
-        permissions=$(echo "$user" | jq -r '.permissions')
-        last_active=$(echo "$user" | jq -r '.last_active')
+        
+        # Extrair permissões
+        if echo "$user" | jq -e '.permissions.admin == true' >/dev/null 2>&1; then
+            permissions="admin"
+        elif echo "$user" | jq -e '.permissions.push == true' >/dev/null 2>&1; then
+            permissions="write"
+        else
+            permissions="read"
+        fi
         
         echo -e "${YELLOW}Usuário: $login${NC}"
         echo "Permissões: $permissions"
-        echo "Último acesso: $last_active"
         echo "----------------------------------------"
     done
 }
@@ -53,7 +55,7 @@ echo "----------------------------------------"
 
 # Você pode adicionar mais repositórios à lista
 repos=(
-    "seu-usuario/seu-repo"
+    "seu-usuario/seu-repositorio"
 )
 
 for repo in "${repos[@]}"; do
