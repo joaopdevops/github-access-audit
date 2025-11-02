@@ -79,9 +79,8 @@ Users with access:
 ## 🤝 Contribuindo
 Sinta-se à vontade para contribuir com melhorias! Abra uma issue ou envie um pull request.
 
-## 📝 Licença
-MIT License - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
 
 ---
-⌨️ com ❤️ por [Seu Nome](https://www.linkedin.com/in/seu-perfil/)
-# teste
+
+
