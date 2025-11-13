@@ -1,6 +1,8 @@
 # Automação de Auditoria de Acessos GitHub
 
 ## 🎯 Objetivo
+Aplicar meus estudos em Shell Script (Bash), GitHub API, AWS EC2 (VM Ubuntu), SSH - 
+
 Script de automação para auditoria de acessos a repositórios GitHub, útil para gerenciar acessos de ex-colaboradores e manter a segurança dos repositórios da empresa.
 
 ## 🛠️ Tecnologias Utilizadas
